@@ -4,11 +4,11 @@ require "inc/header.php";
 
 reconnectCookie();
 
-
 if (isset($_SESSION['auth'])) {
     header('Location: account.php');
     exit();
 }
+
 if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])) {
 
     require_once "inc/db.php";
@@ -36,10 +36,10 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])) 
     }
 }
 ?>
+
 <div class="row justify-content-center mt-5">
     <div class="col-6">
         <h1>Connexion</h1>
-
         <form action="" method="POST">
             <div class="form-group">
                 <label for="">Username or Email</label>
@@ -61,6 +61,5 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])) 
         </form>
     </div>
 </div>
-
 
 <?php require "inc/footer.php"; ?>

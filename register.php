@@ -54,41 +54,48 @@ if (!empty($_POST)) {
         exit();
     }
 }
+
+require 'inc/header.php';
+
 ?>
-<?php require 'inc/header.php'; ?>
+<div class="container">
+    <div class="row justify-content-center mt-4">
+        <div class="col-6">
+            <h1 class="my-5">Register</h1>
 
-<h1 class="my-5">Register</h1>
+            <?php if (!empty($errors)) : ?>
+                <div class="aler alert-danger p-3 rounded mb-3 text-light">
+                    <p>Le formulaire n'est pas rempli correctement !</p>
+                    <?php foreach ($errors as $error) : ?>
+                        <ul>
+                            <li><?= $error; ?></li>
+                        </ul>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
 
-<?php if (!empty($errors)) : ?>
-    <div class="aler alert-danger p-3 rounded mb-3 text-light">
-        <p>Le formulaire n'est pas rempli correctement !</p>
-        <?php foreach ($errors as $error) : ?>
-            <ul>
-                <li><?= $error; ?></li>
-            </ul>
-        <?php endforeach; ?>
-    </div>
-<?php endif; ?>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input class="form-control" type="text" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input class="form-control" type="text" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input class="form-control" type="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="">Confirm Password</label>
+                    <input class="form-control" type="password" name="password_confirm">
 
-<form action="" method="POST">
-    <div class="form-group">
-        <label for="">Username</label>
-        <input class="form-control" type="text" name="username">
+                </div>
+                <button type="submit" class="btn btn-success">Register</button>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="">Email</label>
-        <input class="form-control" type="text" name="email">
-    </div>
-    <div class="form-group">
-        <label for="">Password</label>
-        <input class="form-control" type="password" name="password">
-    </div>
-    <div class="form-group">
-        <label for="">Confirm Password</label>
-        <input class="form-control" type="password" name="password_confirm">
-
-    </div>
-    <button type="submit" class="btn btn-success">Register</button>
-</form>
+</div>
 
 <?php require 'inc/footer.php'; ?>

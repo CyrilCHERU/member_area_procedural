@@ -25,15 +25,22 @@ if (!empty($_POST) && !empty($_POST['email'])) {
     }
 }
 ?>
-<h1>Forget Password</h1>
 
-<form action="" method="POST">
-    <div class="form-group">
-        <label for="">Email</label>
-        <input class="form-control" type="email" name="email">
+<div class="container">
+    <div class="row justify-content-center mt-4">
+        <div class="col-6">
+            <h1>Forget Password</h1>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input class="form-control" type="email" name="email">
+                </div>
+                <div class="row mt-2 justify-content-center">
+                    <button type="submit" class="btn btn-success">Connect</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="row mt-2 justify-content-center">
-        <button type="submit" class="btn btn-success">Connect</button>
-    </div>
-</form>
+</div>
+
 <?php require 'inc/footer.php'; ?>

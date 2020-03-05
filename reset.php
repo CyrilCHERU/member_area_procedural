@@ -23,13 +23,10 @@ if (isset($_GET['id']) && isset($_GET['token'])) {
         header('Location: login.php');
         exit();
     }
-} else {
-    header('Location: login.php');
-    exit();
 }
-require "inc/header.php"; ?>
 
-<?php
+require "inc/header.php";
+
 if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])) {
     require_once "inc/functions.php";
     require_once "inc/db.php";
@@ -49,20 +46,26 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])) 
     }
 }
 ?>
-<h1>Réinitialisation de votre mot de passe</h1>
+<div class="container">
+    <div class="row mt-4 justify-content-center">
+        <div class="col-6">
+            <h1>Réinitialisation de votre mot de passe</h1>
 
-<form action="" method="POST">
-    <div class="form-group">
-        <label for="">Password</label>
-        <input class="form-control" type="password" name="password">
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input class="form-control" type="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="">Confirm password</label>
+                    <input class="form-control" type="password" name="password-confirm">
+                </div>
+                <div class="row mt-2 justify-content-center">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="">Confirm password</label>
-        <input class="form-control" type="password" name="password-confirm">
-    </div>
-    <div class="row mt-2 justify-content-center">
-        <button type="submit" class="btn btn-success">Submit</button>
-    </div>
-</form>
+</div>
 
 <?php require "inc/footer.php"; ?>
